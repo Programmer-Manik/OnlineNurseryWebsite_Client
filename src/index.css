@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.gradientPrimary {
+    @apply bg-gradient-to-r from-primary via-secondary to-cyan-300;
+}

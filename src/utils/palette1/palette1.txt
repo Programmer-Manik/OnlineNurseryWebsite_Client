@@ -1,0 +1,40 @@
+/* Coolors Exported Palette - https://coolors.co/228b22-32cd32-ffda03-ff6347-e6e6fa-92d2ed-36454f-d3d3d3-f5fffa-fffff0 */
+
+- Tailwind
+
+{ 'forest_green': { DEFAULT: '#228b22', 100: '#071c07', 200: '#0e380e', 300: '#145414', 400: '#1b701b', 500: '#228b22', 600: '#2fc22f', 700: '#5cd85c', 800: '#93e593', 900: '#c9f2c9' }, 'lime_green': { DEFAULT: '#32cd32', 100: '#0a290a', 200: '#145214', 300: '#1e7b1e', 400: '#28a428', 500: '#32cd32', 600: '#5bd75b', 700: '#84e184', 800: '#adebad', 900: '#d6f5d6' }, 'school_bus_yellow': { DEFAULT: '#ffda03', 100: '#342c00', 200: '#685800', 300: '#9c8500', 400: '#d0b100', 500: '#ffda03', 600: '#ffe137', 700: '#ffe969', 800: '#fff09b', 900: '#fff8cd' }, 'tomato': { DEFAULT: '#ff6347', 100: '#410a00', 200: '#831400', 300: '#c41d00', 400: '#ff2b06', 500: '#ff6347', 600: '#ff826c', 700: '#ffa191', 800: '#ffc1b6', 900: '#ffe0da' }, 'lavender_(web)': { DEFAULT: '#e6e6fa', 100: '#101050', 200: '#2020a0', 300: '#4545da', 400: '#9595ea', 500: '#e6e6fa', 600: '#ebebfb', 700: '#f0f0fc', 800: '#f5f5fd', 900: '#fafafe' }, 'sky_blue': { DEFAULT: '#92d2ed', 100: '#0b3142', 200: '#156384', 300: '#2094c5', 400: '#50b6e2', 500: '#92d2ed', 600: '#a7dbf1', 700: '#bde4f4', 800: '#d3edf8', 900: '#e9f6fb' }, 'charcoal': { DEFAULT: '#36454f', 100: '#0b0e10', 200: '#151c20', 300: '#20292f', 400: '#2b373f', 500: '#36454f', 600: '#546c7c', 700: '#7892a3', 800: '#a5b6c2', 900: '#d2dbe0' }, 'timberwolf': { DEFAULT: '#d3d3d3', 100: '#2a2a2a', 200: '#555555', 300: '#7f7f7f', 400: '#a9a9a9', 500: '#d3d3d3', 600: '#dcdcdc', 700: '#e5e5e5', 800: '#eeeeee', 900: '#f6f6f6' }, 'mint_cream': { DEFAULT: '#f5fffa', 100: '#006432', 200: '#00c864', 300: '#2dff96', 400: '#91ffc8', 500: '#f5fffa', 600: '#f7fffb', 700: '#f9fffc', 800: '#fbfffd', 900: '#fdfffe' }, 'ivory': { DEFAULT: '#fffff0', 100: '#636300', 200: '#c6c600', 300: '#ffff2a', 400: '#ffff8d', 500: '#fffff0', 600: '#fffff3', 700: '#fffff6', 800: '#fffff9', 900: '#fffffc' } }
+
+- CSV
+
+228b22,32cd32,ffda03,ff6347,e6e6fa,92d2ed,36454f,d3d3d3,f5fffa,fffff0
+
+- With #
+
+#228b22, #32cd32, #ffda03, #ff6347, #e6e6fa, #92d2ed, #36454f, #d3d3d3, #f5fffa, #fffff0
+
+- Array
+
+["228b22","32cd32","ffda03","ff6347","e6e6fa","92d2ed","36454f","d3d3d3","f5fffa","fffff0"]
+
+- Object
+
+{"Forest green":"228b22","Lime green":"32cd32","School bus yellow":"ffda03","Tomato":"ff6347","Lavender (web)":"e6e6fa","Sky blue":"92d2ed","Charcoal":"36454f","Timberwolf":"d3d3d3","Mint cream":"f5fffa","Ivory":"fffff0"}
+
+- Extended Array
+
+[{"name":"Forest green","hex":"228b22","rgb":[34,139,34],"cmyk":[76,0,76,45],"hsb":[120,76,55],"hsl":[120,61,34],"lab":[51,-50,45]},{"name":"Lime green","hex":"32cd32","rgb":[50,205,50],"cmyk":[76,0,76,20],"hsb":[120,76,80],"hsl":[120,61,50],"lab":[73,-67,61]},{"name":"School bus yellow","hex":"ffda03","rgb":[255,218,3],"cmyk":[0,15,99,0],"hsb":[51,99,100],"hsl":[51,100,51],"lab":[88,-3,87]},{"name":"Tomato","hex":"ff6347","rgb":[255,99,71],"cmyk":[0,61,72,0],"hsb":[9,72,100],"hsl":[9,100,64],"lab":[62,58,46]},{"name":"Lavender (web)","hex":"e6e6fa","rgb":[230,230,250],"cmyk":[8,8,0,2],"hsb":[240,8,98],"hsl":[240,67,94],"lab":[92,4,-10]},{"name":"Sky blue","hex":"92d2ed","rgb":[146,210,237],"cmyk":[38,11,0,7],"hsb":[198,38,93],"hsl":[198,72,75],"lab":[81,-14,-20]},{"name":"Charcoal","hex":"36454f","rgb":[54,69,79],"cmyk":[32,13,0,69],"hsb":[204,32,31],"hsl":[204,19,26],"lab":[28,-3,-8]},{"name":"Timberwolf","hex":"d3d3d3","rgb":[211,211,211],"cmyk":[0,0,0,17],"hsb":[0,0,83],"hsl":[0,0,83],"lab":[85,0,0]},{"name":"Mint cream","hex":"f5fffa","rgb":[245,255,250],"cmyk":[4,0,2,0],"hsb":[150,4,100],"hsl":[150,100,98],"lab":[99,-4,1]},{"name":"Ivory","hex":"fffff0","rgb":[255,255,240],"cmyk":[0,0,6,0],"hsb":[60,6,100],"hsl":[60,100,97],"lab":[100,-3,7]}]
+
+- XML
+
+<palette>
+  <color name="Forest green" hex="228b22" r="34" g="139" b="34" />
+  <color name="Lime green" hex="32cd32" r="50" g="205" b="50" />
+  <color name="School bus yellow" hex="ffda03" r="255" g="218" b="3" />
+  <color name="Tomato" hex="ff6347" r="255" g="99" b="71" />
+  <color name="Lavender (web)" hex="e6e6fa" r="230" g="230" b="250" />
+  <color name="Sky blue" hex="92d2ed" r="146" g="210" b="237" />
+  <color name="Charcoal" hex="36454f" r="54" g="69" b="79" />
+  <color name="Timberwolf" hex="d3d3d3" r="211" g="211" b="211" />
+  <color name="Mint cream" hex="f5fffa" r="245" g="255" b="250" />
+  <color name="Ivory" hex="fffff0" r="255" g="255" b="240" />
+</palette>
