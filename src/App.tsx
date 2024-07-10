@@ -1,14 +1,11 @@
-import './App.css'
-import MainLayout from './components/layouts/MainLayout'
+import MainLayout from "./components/layout/MainLayout";
 
-function App() {
-
-
+const App = () => {
   return (
-    <>
-      <MainLayout></MainLayout>
-    </>
-  )
-}
+    <div>
+      <MainLayout />
+    </div>
+  );
+};
 
-export default App
+export default App;
