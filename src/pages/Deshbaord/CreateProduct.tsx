@@ -1,13 +1,17 @@
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
-import { useCreateProductMutation } from "../../redux/api/baseApi";
 import Swal from "sweetalert2";
+import { useCreateProductMutation } from "../../redux/features/product/productApi";
+import { useGetCategoryQuery } from "../../redux/features/category/categoryApi";
 
 const CreateProduct = () => {
   const { register, handleSubmit } = useForm();
+  const { data: category } = useGetCategoryQuery(undefined);
   const [createProduct, { data, isLoading, isSuccess }] =
     useCreateProductMutation();
   const navigate = useNavigate();
+
+  const categoryData = category;
 
   if (isSuccess) {
     Swal.fire({
@@ -29,7 +33,6 @@ const CreateProduct = () => {
     };
     try {
       await createProduct(productData).unwrap();
-      // console.log(result);
     } catch (error) {
       console.error("Failed to create product:", error);
     }
@@ -76,8 +79,15 @@ const CreateProduct = () => {
             <option disabled selected>
               Product Category
             </option>
-            <option value={"amm"}>amm</option>
-            <option value={"jamm"}>jamm</option>
+            {categoryData?.data.map((category) => (
+              <option key={category._id} value={category.name}>
+                {category.name}
+              </option>
+            ))}
+            {/* <option value={"Mardi Gras"}>Mardi Gras</option>
+            <option value={"Golden King"}>Golden King</option>
+            <option value={"Rose Creek"}>Rose Creek</option>
+            <option value={"Canyon Creek"}>Canyon Creek</option> */}
           </select>
         </div>
         <textarea

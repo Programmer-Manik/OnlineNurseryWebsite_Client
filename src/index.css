@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.banner {
+  width: 100%;
+  /* max-height: 200px; */
+  background: url("https://i.ibb.co/KWRRkJp/slider-02-1903x980.jpg") no-repeat
+    center;
+  background-size: cover;
+}

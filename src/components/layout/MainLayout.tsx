@@ -1,13 +1,14 @@
 import { Outlet } from "react-router-dom";
+import TopHeader from "../../pages/MainPage/TopHeader";
+import Footer from "../../pages/Footer";
 
 const MainLayout = () => {
   return (
-    <div>
-      <h2>This is MainLayout component</h2>
-      {/* search bar */}
-      {/* navbar */}
+    <div className="">
+      <TopHeader />
 
       <Outlet />
+      <Footer />
     </div>
   );
 };
