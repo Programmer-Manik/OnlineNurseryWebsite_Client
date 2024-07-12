@@ -20,6 +20,7 @@ const SingleProduct = () => {
   const singleProductInfo = data?.data;
 
   const {
+    _id,
     title,
     category,
     description,
@@ -27,22 +28,24 @@ const SingleProduct = () => {
     price,
     rating,
     quantity: quantityValue,
+    inStock,
   } = singleProductInfo;
 
   const quantityNumber = parseInt(quantity);
   const priceNumber = parseInt(price);
   const totalPrice = priceNumber * quantityNumber;
 
-  const addToCart = async () => {
+  const addToCart = async (data) => {
     try {
       if (quantity === "") {
         return toast.error("Please added Quantity Number");
       }
       if (quantityValue < quantity) {
-        return toast.error("Quantity is over!");
+        return toast.error("Insufficient quantity available");
       }
 
       const cartObj = {
+        _id,
         quantity,
         title,
         category,
@@ -88,12 +91,14 @@ const SingleProduct = () => {
                   Category : <span className="text-green-600">{category}</span>
                 </h3>
                 <h3 className="text-[#333]">
-                  Product Code :{" "}
-                  <span className="text-slate-600">Product 14</span>
+                  Available Product :
+                  <span className="text-slate-600"> {quantityValue} items</span>
                 </h3>
                 <h3 className="text-[#333]">
                   Availability: :{" "}
-                  <span className="text-slate-600">In Stock</span>
+                  <span className="text-slate-600">
+                    {inStock ? "In Stock" : "Out Of Stock"}
+                  </span>
                 </h3>
                 <div className=" flex gap-6 items-center">
                   <Rate allowHalf disabled={true} defaultValue={rating} />
@@ -149,13 +154,17 @@ const SingleProduct = () => {
                   <input
                     required
                     onChange={(e) => setQuantity(e.target.value)}
-                    className="input text-center w-20 input-bordered rounded-badge"
+                    className={`input ${
+                      inStock ? "" : "input-disabled"
+                    } text-center w-20 input-bordered rounded-badge`}
                     type="text"
                     defaultValue={"0"}
                   />
                   <button
                     onClick={() => addToCart(singleProductInfo)}
-                    className="btn btn-neutral px-8"
+                    className={`btn btn-neutral px-8 ${
+                      inStock ? "" : "btn-disabled"
+                    } `}
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"

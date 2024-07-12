@@ -9,7 +9,7 @@ const ProductApi = baseApi.injectEndpoints({
           url: `/products`,
         };
       },
-      providesTags: ["product,categories"],
+      providesTags: ["product,categories", "order"],
     }),
     getSingleProducts: builder.query({
       query: (id) => {
@@ -18,7 +18,7 @@ const ProductApi = baseApi.injectEndpoints({
           url: `/products/${id}`,
         };
       },
-      providesTags: ["product,categories"],
+      providesTags: ["product,categories", "order"],
     }),
     getProductsSearch: builder.query({
       query: ({ search }) => {
@@ -28,7 +28,7 @@ const ProductApi = baseApi.injectEndpoints({
           url: `/products?search=${search}`,
         };
       },
-      providesTags: ["product,categories"],
+      providesTags: ["product,categories", "order"],
     }),
     getCategorySearch: builder.query({
       query: ({ category }) => {
@@ -38,7 +38,7 @@ const ProductApi = baseApi.injectEndpoints({
           url: `/products?category=${category}`,
         };
       },
-      providesTags: ["product,categories"],
+      providesTags: ["product,categories", "order"],
     }),
     getFilterSearch: builder.query({
       query: ({ minPrice, maxPrice }) => {
@@ -47,7 +47,7 @@ const ProductApi = baseApi.injectEndpoints({
           url: `/products?minPrice=${minPrice}&maxPrice=${maxPrice}`,
         };
       },
-      providesTags: ["product,categories"],
+      providesTags: ["product,categories", "order"],
     }),
 
     //   queryFn: async ({ search, filter }): Promise<any> => {
@@ -79,7 +79,7 @@ const ProductApi = baseApi.injectEndpoints({
       query: (data) => {
         return { method: "POST", url: "/products/create-product", body: data };
       },
-      invalidatesTags: ["product,categories"],
+      invalidatesTags: ["product,categories", "order"],
     }),
     updateProduct: builder.mutation({
       query: ({ id, data }) => {
@@ -90,7 +90,7 @@ const ProductApi = baseApi.injectEndpoints({
           body: data,
         };
       },
-      invalidatesTags: ["product,categories"],
+      invalidatesTags: ["product,categories", "order"],
     }),
     deleteProduct: builder.mutation({
       query: (id) => {
@@ -100,7 +100,7 @@ const ProductApi = baseApi.injectEndpoints({
           url: `/products/${id}`,
         };
       },
-      invalidatesTags: ["product,categories"],
+      invalidatesTags: ["product,categories", "order"],
     }),
   }),
 });
