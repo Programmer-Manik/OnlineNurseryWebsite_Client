@@ -65,7 +65,14 @@ const CreateProduct = () => {
             placeholder="Product Price"
           />
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <input
+            {...register("quantity")}
+            className="input input-bordered w-full "
+            type="text"
+            placeholder="Quantity"
+            defaultValue="0"
+          />
           <input
             {...register("rating")}
             className="input input-bordered w-full "

@@ -1,10 +1,10 @@
 export type TProducts = {
+  quantity: number;
   _id: string;
   title: string;
-  brand: string;
   price: number;
   description: string;
-  rating: number;
+  rating?: number;
   category: string;
   imageUrl: string;
 };

@@ -13,7 +13,6 @@ const ProductApi = baseApi.injectEndpoints({
     }),
     getSingleProducts: builder.query({
       query: (id) => {
-        console.log(id);
         return {
           method: "GET",
           url: `/products/${id}`,
@@ -31,7 +30,26 @@ const ProductApi = baseApi.injectEndpoints({
       },
       providesTags: ["product,categories"],
     }),
-    // getProductsSearch: builder.query({
+    getCategorySearch: builder.query({
+      query: ({ category }) => {
+        return {
+          method: "GET",
+          // url: `/products?search=${search}&category=${filter}`,
+          url: `/products?category=${category}`,
+        };
+      },
+      providesTags: ["product,categories"],
+    }),
+    getFilterSearch: builder.query({
+      query: ({ minPrice, maxPrice }) => {
+        return {
+          method: "GET",
+          url: `/products?minPrice=${minPrice}&maxPrice=${maxPrice}`,
+        };
+      },
+      providesTags: ["product,categories"],
+    }),
+
     //   queryFn: async ({ search, filter }): Promise<any> => {
     //     try {
     //       const [searchResponse, categoryResponse] = await Promise.all([
@@ -94,4 +112,6 @@ export const {
   useUpdateProductMutation,
   useGetProductsSearchQuery,
   useGetSingleProductsQuery,
+  useGetCategorySearchQuery,
+  useGetFilterSearchQuery,
 } = ProductApi;
