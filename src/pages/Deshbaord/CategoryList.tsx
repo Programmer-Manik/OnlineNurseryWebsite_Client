@@ -6,11 +6,12 @@ import {
 import { Skeleton } from "antd";
 import Swal from "sweetalert2";
 import { useState } from "react";
+import { Category } from "../../types/productType";
 
 const CategoryList = () => {
   const { data, isLoading } = useGetCategoryQuery(undefined);
   const [deleteCategory] = useDeleteCategoryMutation();
-  const [viewCategory, setViewCategory] = useState({});
+  const [viewCategory, setViewCategory] = useState<Partial<Category>>({});
   const category = data;
   const { name, description } = viewCategory;
 
@@ -37,19 +38,24 @@ const CategoryList = () => {
 
   // modal
   const showModal = async (id: any) => {
-    const findData = await category.data.find(
+    const findData = await category?.data.find(
       (item: { _id: string }) => item._id === id
     );
-    setViewCategory(findData);
-    document.getElementById("my_modal_1").showModal();
+    if (findData) {
+      setViewCategory(findData);
+      const modal = document.getElementById("my_modal_1") as HTMLDialogElement;
+      if (modal) {
+        modal.showModal();
+      }
+    }
   };
 
   return (
     <div>
       <div className="flex justify-between items-center">
-        <h2 className="text-4xl font-semibold">Category List</h2>
+        <h2 className="text-xl md:text-4xl font-semibold">Category List</h2>
         <Link to="/dashboard/create-category">
-          <button className="btn btn-primary">Create Category</button>
+          <button className="btn btn-neutral btn-sm">Create Category</button>
         </Link>
       </div>
 
@@ -76,11 +82,11 @@ const CategoryList = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {category?.data.map((item, index: number) => (
+                  {category?.data.map((item: any, index: number) => (
                     <tr key={item._id}>
                       <td>{index + 1}</td>
                       <td>{item.name}</td>
-                      <td>{item.description.slice(0, 60)}...</td>
+                      <td>{item.description.slice(0, 30)}...</td>
                       <th className="w-32">
                         <div className="flex gap-3 justify-center items-center">
                           <button

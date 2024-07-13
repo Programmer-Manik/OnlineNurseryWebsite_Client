@@ -1,4 +1,4 @@
-const HeaderSection = ({ title, des }) => {
+const HeaderSection = ({ title, des }: { title: string; des: string }) => {
   return (
     <div className="max-w-4xl flex flex-col justify-center items-center mx-auto px-6 sm:px-0">
       <img src="https://i.ibb.co/MCd4gnL/separator.png" alt="body-logo" />

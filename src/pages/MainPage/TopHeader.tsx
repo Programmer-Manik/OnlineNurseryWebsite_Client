@@ -21,7 +21,7 @@ const TopHeader = () => {
     [dispatch, navigate]
   );
 
-  const onSearchSubmit = (data) => {
+  const onSearchSubmit = (data: any) => {
     const searchInfo = {
       search: data.searchData,
     };

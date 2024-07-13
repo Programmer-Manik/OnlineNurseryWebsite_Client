@@ -78,7 +78,7 @@ const Products: React.FC = () => {
     [dispatch]
   );
   // Form submission handlers
-  const onFilterSubmit = (data) => {
+  const onFilterSubmit = (data: any) => {
     if (Number.isNaN(data.minPrice) && Number.isNaN(data.maxPrice)) {
       return toast.error("Please Input Min-Price and Max-Price");
     } else if (Number.isNaN(data.minPrice)) {

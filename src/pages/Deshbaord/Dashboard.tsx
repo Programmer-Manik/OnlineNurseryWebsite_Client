@@ -1,7 +1,7 @@
 const Dashboard = () => {
   return (
-    <div>
-      <div className="stats shadow w-full">
+    <div className="px-6 xl:px-0">
+      <div className="stats shadow w-full ">
         <div className="stat">
           <div className="stat-figure text-primary">
             <svg

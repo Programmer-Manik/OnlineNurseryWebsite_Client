@@ -14,17 +14,12 @@ const ProductCard = ({ product }: { product: any }) => {
     category,
     inStock,
   } = product;
+
   const dispatch = useAppDispatch();
 
-  const handleSingleProduct = (id: { id: string }) => {
+  const handleSingleProduct = (id: string) => {
     dispatch(singleProduct(id));
   };
-
-  // const handleShowProduct = (id: string) => {
-  //   setShowProduct(id);
-  //   document.getElementById("my_modal_4").showModal();
-  // };
-
   return (
     <div
       onClick={() => handleSingleProduct(id)}

@@ -50,30 +50,6 @@ const ProductApi = baseApi.injectEndpoints({
       providesTags: ["product,categories", "order"],
     }),
 
-    //     try {
-    //       const [searchResponse, categoryResponse] = await Promise.all([
-    //         fetch(`http://localhost:4000/api/products?search=${search}`),
-    //         fetch(`http://localhost:4000/api/products?category=${filter}`),
-    //       ]);
-
-    //       if (!searchResponse.ok || !categoryResponse.ok) {
-    //         throw new Error("Network response was not ok.");
-    //       }
-    //       const [searchData, categoryData] = await Promise.all([
-    //         searchResponse.json(),
-    //         categoryResponse.json(),
-    //       ]);
-    //       return {
-    //         data: {
-    //           search: searchData,
-    //           category: categoryData,
-    //         },
-    //       };
-    //     } catch (error) {
-    //       return error;
-    //     }
-    //   },
-    // }),
     createProduct: builder.mutation({
       query: (data) => {
         return { method: "POST", url: "/products/create-product", body: data };

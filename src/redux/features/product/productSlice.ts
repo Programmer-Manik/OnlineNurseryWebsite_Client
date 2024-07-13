@@ -11,7 +11,7 @@ interface ProductState {
   category: {
     category: string;
   };
-  singleProduct: string;
+  singleProduct: string | null;
 
   // searchProduct: Record<string, unknown>;
 }
@@ -24,7 +24,7 @@ const initialState: ProductState = {
   category: {
     category: "",
   },
-  singleProduct: "",
+  singleProduct: null,
   product: {},
 };
 
@@ -45,7 +45,7 @@ export const productSlice = createSlice({
       console.log(action.payload);
       state.category = action.payload;
     },
-    singleProduct: (state, action) => {
+    singleProduct: (state, action: PayloadAction<string>) => {
       state.singleProduct = action.payload;
     },
   },

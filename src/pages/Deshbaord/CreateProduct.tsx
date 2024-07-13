@@ -3,30 +3,40 @@ import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { useCreateProductMutation } from "../../redux/features/product/productApi";
 import { useGetCategoryQuery } from "../../redux/features/category/categoryApi";
+import { Category } from "../../types/productType";
+import { useEffect } from "react";
+import { toast } from "sonner";
 
 const CreateProduct = () => {
   const { register, handleSubmit } = useForm();
   const { data: category } = useGetCategoryQuery(undefined);
-  const [createProduct, { data, isLoading, isSuccess }] =
+  const [createProduct, { data, isLoading, isSuccess, isError }] =
     useCreateProductMutation();
   const navigate = useNavigate();
 
   const categoryData = category;
 
-  if (isSuccess) {
-    Swal.fire({
-      title: "Good job!",
-      text: `${data.message}`,
-      icon: "success",
-    });
-    // navigate("/dashboard/product-list");
-  }
+  useEffect(() => {
+    if (isSuccess) {
+      Swal.fire({
+        title: "Good job!",
+        text: `${data.message}`,
+        icon: "success",
+      });
+      navigate("/dashboard/product-list");
+    }
+
+    if (isError) {
+      toast.error("Something went wrong!");
+    }
+  }, [isSuccess, isError]);
 
   const onSubmit = async (data: any) => {
     const productData = {
       title: data.title,
       description: data.description,
       price: data.price,
+      quantity: data.quantity,
       rating: data.rating,
       category: data.category,
       imageUrl: data.imageUrl,
@@ -42,9 +52,9 @@ const CreateProduct = () => {
     <div>
       {isLoading && <span>Loading...</span>}
       <div className="flex justify-between items-center">
-        <h2 className="text-2xl font-semibold">Product Create</h2>
+        <h2 className="text-xl md:text-2xl font-semibold">Product Create</h2>
         <Link to="/dashboard/product-list">
-          <button className="btn btn-primary">See all Products</button>
+          <button className="btn btn-neutral btn-sm">See all Products</button>
         </Link>
       </div>
       <form
@@ -71,7 +81,6 @@ const CreateProduct = () => {
             className="input input-bordered w-full "
             type="text"
             placeholder="Quantity"
-            defaultValue="0"
           />
           <input
             {...register("rating")}
@@ -86,15 +95,11 @@ const CreateProduct = () => {
             <option disabled selected>
               Product Category
             </option>
-            {categoryData?.data.map((category) => (
+            {categoryData?.data.map((category: Category) => (
               <option key={category._id} value={category.name}>
                 {category.name}
               </option>
             ))}
-            {/* <option value={"Mardi Gras"}>Mardi Gras</option>
-            <option value={"Golden King"}>Golden King</option>
-            <option value={"Rose Creek"}>Rose Creek</option>
-            <option value={"Canyon Creek"}>Canyon Creek</option> */}
           </select>
         </div>
         <textarea

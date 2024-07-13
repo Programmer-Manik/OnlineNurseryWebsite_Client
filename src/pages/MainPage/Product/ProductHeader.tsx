@@ -1,4 +1,4 @@
-const ProductHeader = ({ title }) => {
+const ProductHeader = ({ title }: { title: any }) => {
   const productStyle = {
     background: "URL(https://i.ibb.co/7kwMsw2/parallax.jpg)",
     backgroundSize: "cover",

@@ -29,7 +29,7 @@ const ShoppingCart = () => {
     return acc + item.totalPrice;
   }, 50);
   useEffect(() => {
-    const handleBeforeUnload = (event) => {
+    const handleBeforeUnload = (event: any) => {
       if (cartData.length > 0) {
         const message =
           "Are you sure you want to leave? You may lose your cart items.";
@@ -45,7 +45,7 @@ const ShoppingCart = () => {
     };
   }, [cartData]);
 
-  const onOrderSubmit = async (data) => {
+  const onOrderSubmit = async (data: any) => {
     try {
       if (data.cashOnDelivery && data.stripe) {
         return toast.error("Please select One payment method!");
@@ -78,33 +78,35 @@ const ShoppingCart = () => {
     <div>
       <ProductHeader title="Shopping Cart" />
       {cartData.length ? (
-        <div className="my-16 max-w-6xl mx-auto ">
-          <table className="border w-full text-center">
-            <thead>
-              <tr>
-                <td className="border p-2">Image</td>
-                <td className="border p-2">Product Title</td>
-                <td className="border p-2">Category</td>
-                <td className="border p-2">Quantity</td>
-                <td className="border p-2">Unit Price</td>
-                <td className="border p-2">Total</td>
-              </tr>
-            </thead>
-            <tbody>
-              {cartData?.map((cart: any) => (
-                <tr key={cart._id}>
-                  <td className="p-1 border flex justify-center items-center">
-                    <img className="w-12" src={cart.imageUrl} alt="" />
-                  </td>
-                  <td className="border p-1">{cart.title}</td>
-                  <td className="border p-1">{cart.category}</td>
-                  <td className="border p-1">{cart.quantity}</td>
-                  <td className="border p-1">${cart.price}.00</td>
-                  <td className="border p-1">${cart.totalPrice}.00</td>
+        <div className="my-16 max-w-6xl mx-auto px-6 xl:px-0 ">
+          <div className="overflow-x-auto">
+            <table className="table border w-full text-center">
+              <thead>
+                <tr>
+                  <td className="border p-2">Image</td>
+                  <td className="border p-2">Product Title</td>
+                  <td className="border p-2">Category</td>
+                  <td className="border p-2">Quantity</td>
+                  <td className="border p-2">Unit Price</td>
+                  <td className="border p-2">Total</td>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {cartData?.map((cart: any) => (
+                  <tr key={cart._id}>
+                    <td className="p-1 border flex justify-center items-center">
+                      <img className="w-12" src={cart.imageUrl} alt="" />
+                    </td>
+                    <td className="border p-1">{cart.title}</td>
+                    <td className="border p-1">{cart.category}</td>
+                    <td className="border p-1">{cart.quantity}</td>
+                    <td className="border p-1">${cart.price}.00</td>
+                    <td className="border p-1">${cart.totalPrice}.00</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
 
           <div className="mt-20">
             <h2 className="text-2xl font-semibold">
@@ -116,11 +118,15 @@ const ShoppingCart = () => {
             </p>
             <div className="max-w-xl ms-auto border my-6">
               <div className="flex">
-                <td className="p-5 border w-full text-end">Delivery Charge </td>
+                <td className="p-5 text-sm md:text-lg border w-full text-end">
+                  Delivery Charge{" "}
+                </td>
                 <td className="p-5 border w-full text-end">$50.00</td>
               </div>
               <div className="flex">
-                <td className="p-5 border w-full text-end">Total Charge</td>
+                <td className="p-5 text-sm md:text-lg border w-full text-end">
+                  Total Charge
+                </td>
                 <td className="p-5 border w-full text-end">
                   ${totalCharge}.00
                 </td>

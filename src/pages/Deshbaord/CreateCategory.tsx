@@ -4,8 +4,7 @@ import Swal from "sweetalert2";
 
 const CreateCategory = () => {
   const { register, handleSubmit } = useForm();
-  const [CreateCategory, { data, isSuccess, isError, error }] =
-    useCreateCategoryMutation();
+  const [CreateCategory, { data, isSuccess }] = useCreateCategoryMutation();
 
   if (isSuccess) {
     Swal.fire({
@@ -36,7 +35,7 @@ const CreateCategory = () => {
 
   return (
     <div>
-      <h2 className="text-4xl font-semibold">Create Category</h2>
+      <h2 className="text-xl md:text-4xl font-semibold">Create Category</h2>
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="my-10 flex flex-col gap-y-8"
@@ -63,7 +62,7 @@ const CreateCategory = () => {
           <input
             type="submit"
             value="Create"
-            className="btn btn-success  text-white"
+            className="btn btn-neutral  text-white"
           />
         </div>
       </form>

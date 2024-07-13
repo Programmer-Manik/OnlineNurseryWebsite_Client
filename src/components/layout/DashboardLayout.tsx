@@ -58,7 +58,7 @@ const DashboardLayout = () => {
             className="drawer-overlay"
           ></label>
           <div className="relative h-full">
-            <ul className="menu text-base-content h-full w-72 p-6  space-y-3  text-[16px]">
+            <ul className="menu text-base-content h-full w-72 p-6  space-y-3  text-[16px] bg-white border-r pt-24 lg:pt-4  z-50">
               {/* Sidebar content here */}
               <li>
                 <Link to="/dashboard/home">

@@ -1,9 +1,9 @@
-import { Button, Modal, Skeleton } from "antd";
-import { TProducts } from "../../types/productType";
+import { Skeleton } from "antd";
+import { Category, TProduct } from "../../types/productType";
 import Swal from "sweetalert2";
-import { Link, Navigate, useNavigate } from "react-router-dom";
-import { useForm } from "react-hook-form";
-import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+
+import { ReactNode, useState } from "react";
 import {
   useDeleteProductMutation,
   useGetProductsQuery,
@@ -28,7 +28,7 @@ const ProductList = () => {
     imageUrl,
     description,
     quantity,
-  } = update;
+  } = update as TProduct;
 
   const productData = data;
   console.log(productData);
@@ -38,7 +38,7 @@ const ProductList = () => {
     navigate("/dashboard/product-list");
   }
 
-  const handleDelete = (id: string) => {
+  const handleDelete = (id: ReactNode) => {
     Swal.fire({
       title: "Are you sure delete product?",
       text: "You won't be able to revert this!",
@@ -59,45 +59,49 @@ const ProductList = () => {
     });
   };
   // modal
-  const showModal = async (id) => {
+  const showModal = async (id: ReactNode) => {
     const selectUpdateData = await productData.data.find(
       (item: { _id: string }) => item._id === id
     );
-    setUpdate(selectUpdateData);
-    document.getElementById("my_modal_5").showModal();
+    if (selectUpdateData) {
+      setUpdate(selectUpdateData);
+      const modal = document.getElementById("my_modal_5") as HTMLDialogElement;
+
+      if (modal) {
+        modal.showModal();
+      }
+    }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: {
+    currentTarget: any;
+    preventDefault: () => void;
+    target: any;
+  }) => {
     e.preventDefault();
     const id = _id;
-    const form = e.target;
-    const title = form.title.value;
-    const price = form.price.value;
-    const rating = form.rating.value;
-    const quantity = form.quantity.value;
-    const category = form.category.value;
-    const imageUrl = form.imageUrl.value;
-    const description = form.description.value;
-
-    const data = {
-      title,
-      price,
-      rating,
-      category,
-      imageUrl,
-      description,
-      quantity,
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const updatedProduct = {
+      title: formData.get("title") as string,
+      price: Number(formData.get("price")),
+      rating: formData.get("rating") as string,
+      quantity: formData.get("quantity") as string,
+      category: formData.get("category") as string,
+      imageUrl: formData.get("imageUrl") as string,
+      description: formData.get("description") as string,
     };
+    console.log(updatedProduct);
 
-    updateProduct({ id, data });
+    updateProduct({ id, data: updatedProduct });
   };
 
   return (
     <div>
       <div className="flex justify-between items-center">
-        <h2 className="text-4xl font-semibold">Product List</h2>
+        <h2 className="text-xl sm:text-4xl font-semibold">Product List</h2>
         <Link to="/dashboard/create-product">
-          <button className="btn btn-primary">Create Product</button>
+          <button className="btn btn-neutral btn-sm">Create Product</button>
         </Link>
       </div>
 
@@ -126,7 +130,7 @@ const ProductList = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {productData?.data.map((item: TProducts, index: number) => (
+                  {productData?.data.map((item: TProduct, index: number) => (
                     <tr key={item._id}>
                       <td>{index + 1}</td>
                       <td>
@@ -252,7 +256,7 @@ const ProductList = () => {
                 <option disabled selected>
                   Product Category
                 </option>
-                {categoryData?.data.map((category) => (
+                {categoryData?.data.map((category: Category) => (
                   <option key={category._id} value={category.name}>
                     {category.name}
                   </option>
