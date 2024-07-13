@@ -15,7 +15,7 @@ const NutrientsPlants = () => {
         title="Welcome To Nutrients Plants"
         des="OURS PLANT HOUSE"
       />
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 mt-12">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 mt-12 gap-y-12 ">
         {productData?.data.slice(0, 4).map((item) => (
           <div
             key={item._id}

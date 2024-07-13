@@ -73,7 +73,7 @@ const SingleProduct = () => {
       {isLoading ? (
         <span>loading...</span>
       ) : (
-        <div className="my-16 max-w-6xl mx-auto ">
+        <div className="my-16 max-w-6xl mx-auto px-6 xl:px-0">
           <div className="flex flex-col md:flex-row gap-16">
             <div className="w-full">
               <figure className="h-full relative bg-slate-100 p-2 py-12  rounded-xl">
@@ -100,7 +100,7 @@ const SingleProduct = () => {
                     {inStock ? "In Stock" : "Out Of Stock"}
                   </span>
                 </h3>
-                <div className=" flex gap-6 items-center">
+                <div className="flex gap-6 flex-col lg:flex-row lg:items-center">
                   <Rate allowHalf disabled={true} defaultValue={rating} />
                   <div className="text-slate-500 cursor-pointer flex items-center gap-2 ">
                     <svg
@@ -149,16 +149,17 @@ const SingleProduct = () => {
                 <span className="text-slate-500">Ex Tax: $20.00</span>
               </div>
               <div className="my-10 ">
-                <div className="flex items-center gap-4 mb-6">
-                  <span className="text-lg font-semibold">Qty : </span>
+                <div className="flex flex-col lg:flex-row lg:items-center gap-4 mb-6">
+                  <span className="text-lg font-semibold">Quantity : </span>
                   <input
                     required
                     onChange={(e) => setQuantity(e.target.value)}
                     className={`input ${
-                      inStock ? "" : "input-disabled"
-                    } text-center w-20 input-bordered rounded-badge`}
+                      inStock ? "" : "disabled"
+                    } text-center lg:w-20 input-bordered rounded-badge`}
                     type="text"
                     defaultValue={"0"}
+                    disabled={!inStock}
                   />
                   <button
                     onClick={() => addToCart(singleProductInfo)}

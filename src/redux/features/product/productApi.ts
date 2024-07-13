@@ -32,9 +32,9 @@ const ProductApi = baseApi.injectEndpoints({
     }),
     getCategorySearch: builder.query({
       query: ({ category }) => {
+        console.log(category);
         return {
           method: "GET",
-          // url: `/products?search=${search}&category=${filter}`,
           url: `/products?category=${category}`,
         };
       },
@@ -50,7 +50,6 @@ const ProductApi = baseApi.injectEndpoints({
       providesTags: ["product,categories", "order"],
     }),
 
-    //   queryFn: async ({ search, filter }): Promise<any> => {
     //     try {
     //       const [searchResponse, categoryResponse] = await Promise.all([
     //         fetch(`http://localhost:4000/api/products?search=${search}`),

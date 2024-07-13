@@ -13,9 +13,11 @@ const ShoppingCart = () => {
   const [createOrder, { isLoading, isSuccess, isError }] =
     useCreateOrderDataMutation();
 
+  const [stripe, setStripe] = useState(false);
+
   useEffect(() => {
     if (isSuccess) {
-      toast.success("Order accepted!");
+      toast.success("Order Successful!");
     }
 
     if (isError) {
@@ -45,6 +47,12 @@ const ShoppingCart = () => {
 
   const onOrderSubmit = async (data) => {
     try {
+      if (data.cashOnDelivery && data.stripe) {
+        return toast.error("Please select One payment method!");
+      }
+      if (!data.cashOnDelivery && !data.stripe) {
+        return toast.error("Please select One payment method!");
+      }
       const orderInfo = {
         productItem: cartData,
         name: data.name,
@@ -56,9 +64,11 @@ const ShoppingCart = () => {
         city: data.city,
         postCode: data.postCode,
         country: data.country,
+        CashOnDelivery: data?.cashOnDelivery || false,
+        StripePayment: data?.stripe || false,
       };
       await createOrder(orderInfo);
-      // console.log(orderInfo);
+      console.log(orderInfo);
     } catch (error) {
       console.error("Failed to create product:", error);
     }
@@ -186,6 +196,53 @@ const ShoppingCart = () => {
                           type="text"
                           placeholder="Your Phone No"
                         />
+                      </div>
+                    </div>
+                    {/* payment method */}
+                    <div>
+                      <h2 className="text-xl font-semibold text-[#333]">
+                        Payment Method
+                      </h2>
+                      {/* strip payment */}
+
+                      <div>
+                        <div>
+                          <div className="flex items-center gap-2 my-6">
+                            <input
+                              onClick={() => setStripe(!stripe)}
+                              {...register("stripe")}
+                              className="checkbox"
+                              id="stripe"
+                              type="checkbox"
+                            />
+                            <label
+                              className="text-[#444] text-xl"
+                              htmlFor="stripe"
+                            >
+                              Stripe Payment
+                            </label>
+                          </div>
+                          {stripe && (
+                            <div>
+                              <input
+                                className="input input-bordered w-full"
+                                type="text"
+                                placeholder="Your Card Number"
+                              />
+                            </div>
+                          )}
+                        </div>
+                        <div className="flex items-center gap-2 my-6">
+                          <input
+                            {...register("cashOnDelivery")}
+                            className="checkbox"
+                            id="cash"
+                            type="checkbox"
+                          />
+                          <label className="text-[#444] text-xl" htmlFor="cash">
+                            Cash on Delivery
+                          </label>
+                        </div>
                       </div>
                     </div>
                   </div>

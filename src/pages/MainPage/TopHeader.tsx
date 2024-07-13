@@ -1,29 +1,39 @@
 import { Link, useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { searchInput } from "../../redux/features/product/productSlice";
+import { debounce } from "lodash";
 
 const TopHeader = () => {
   const dispatch = useAppDispatch();
   const [openNav, setOpenNav] = useState(false);
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
+
+  // Debounced search function
+  const debouncedSearch = useCallback(
+    debounce((searchInfo) => {
+      dispatch(searchInput(searchInfo));
+      navigate(`/products/search`);
+    }, 500),
+    [dispatch, navigate]
+  );
+
   const onSearchSubmit = (data) => {
     const searchInfo = {
       search: data.searchData,
     };
-    dispatch(searchInput(searchInfo));
-    navigate(`/products/search`);
+    debouncedSearch(searchInfo);
   };
 
   const cartItemSelector = useAppSelector((item) => item.cart.cart);
 
   return (
-    <div className="bg-black bg-opacity-85  text-white relative">
-      <div className="py-6 max-w-7xl mx-auto flex justify-between items-center ">
-        <div className="flex items-center gap-8">
+    <div className="bg-black bg-opacity-85  text-white relative ">
+      <div className="py-6 px-6 xl:px-0 max-w-7xl mx-auto flex justify-between items-center ">
+        <div className="flex items-center gap-2 sm:gap-8">
           <button onClick={() => setOpenNav(!openNav)}>
             {openNav ? (
               <svg
@@ -32,7 +42,7 @@ const TopHeader = () => {
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="size-9"
+                className="size-7 sm:size-9"
               >
                 <path
                   strokeLinecap="round"
@@ -47,7 +57,7 @@ const TopHeader = () => {
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="size-9"
+                className="size-7 sm:size-9"
               >
                 <path
                   strokeLinecap="round"
@@ -60,13 +70,13 @@ const TopHeader = () => {
 
           <Link to="/">
             <img
-              className="w-32"
+              className="w-28 sm:w-32"
               src="https://i.ibb.co/sCd8F9x/logo.png"
               alt="logo"
             />
           </Link>
         </div>
-        <div>
+        <div className="hidden lg:block">
           <form
             onSubmit={handleSubmit(onSearchSubmit)}
             className="join text-black"
@@ -81,19 +91,6 @@ const TopHeader = () => {
                 />
               </div>
             </div>
-            {/* <select
-              {...register("searchCategory")}
-              className="select select-bordered join-item"
-            >
-              <option disabled selected>
-                Category
-              </option>
-              {categoryData?.data.map((category) => (
-                <option key={category._id} value={category.name}>
-                  {category.name}
-                </option>
-              ))}
-            </select> */}
             <div className="indicator">
               <button type="submit" className="btn join-item">
                 Search
@@ -108,7 +105,7 @@ const TopHeader = () => {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="size-8 cursor-pointer"
+            className="size-6 sm:size-8 cursor-pointer"
           >
             <path
               strokeLinecap="round"
@@ -128,7 +125,7 @@ const TopHeader = () => {
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="size-8 cursor-pointer"
+                className="size-6 sm:size-8 cursor-pointer"
               >
                 <path
                   strokeLinecap="round"
@@ -144,7 +141,7 @@ const TopHeader = () => {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="size-8 cursor-pointer"
+            className="size-6 sm:size-8 cursor-pointer"
           >
             <path
               strokeLinecap="round"

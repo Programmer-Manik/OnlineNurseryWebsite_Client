@@ -2,14 +2,14 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface ProductState {
   filter: {
-    minPrice?: string;
-    maxPrice?: string;
+    minPrice: string | "";
+    maxPrice: string | "";
   };
   product: {
     search?: string;
   };
   category: {
-    category?: string;
+    category: string;
   };
   singleProduct: string;
 
@@ -17,8 +17,13 @@ interface ProductState {
 }
 
 const initialState: ProductState = {
-  filter: {},
-  category: {},
+  filter: {
+    minPrice: "",
+    maxPrice: "",
+  },
+  category: {
+    category: "",
+  },
   singleProduct: "",
   product: {},
 };
@@ -32,11 +37,12 @@ export const productSlice = createSlice({
     },
     searchFilter: (
       state,
-      action: PayloadAction<{ minPrice: string; maxPrice: string }>
+      action: PayloadAction<{ minPrice: string | ""; maxPrice: string | "" }>
     ) => {
       state.filter = action.payload;
     },
     searchCategory: (state, action: PayloadAction<{ category: string }>) => {
+      console.log(action.payload);
       state.category = action.payload;
     },
     singleProduct: (state, action) => {
