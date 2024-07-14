@@ -1,19 +1,6 @@
 <div align="center">
-  <h1>Nursery Online</h1>
-  <p>Explore and purchase plants and gardening products online!</p>
+  <h1>nursery-website-client</h1>
 </div>
-
----
-
-## Table of Contents
-
-- [Overview](#overview)
-- [Live URL](#live-url)
-- [Features](#features)
-- [Technology Stack](#technology-stack)
-- [Installation](#installation)
-
----
 
 ## Overview
 
@@ -23,7 +10,7 @@ Nursery Online is an e-commerce platform designed for plant enthusiasts to brows
 
 ## Live URL
 
-Visit the live site: [Nursery Online](https://nursery-client.vercel.app/)
+Visit the live site: [nursery-website-client](https://online-nursery-website-client-self.vercel.app)
 
 ---
 
@@ -58,6 +45,6 @@ Follow these steps to set up the project locally:
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/jonycmtt/nursery-client.git
-   cd nursery-client
+   git clone https://github.com/Programmer-Manik/OnlineNurseryWebsite_Client.git
+   cd OnlineNurseryWebsite_Client
    ```
