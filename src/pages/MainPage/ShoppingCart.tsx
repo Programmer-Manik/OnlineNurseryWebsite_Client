@@ -156,10 +156,7 @@ const ShoppingCart = () => {
               <h1 className="text-2xl font-semibold text-center">
                 Checkout Form
               </h1>
-              {/* <div className="my-12 flex justify-between items-center">
-            <h2>Your Personal Details</h2>
-            <h2>Your Address</h2>
-          </div> */}
+            
               <form onSubmit={handleSubmit(onOrderSubmit)} className=" my-12">
                 <div className="flex justify-center flex-col lg:flex-row gap-12">
                   <div className="w-full">
