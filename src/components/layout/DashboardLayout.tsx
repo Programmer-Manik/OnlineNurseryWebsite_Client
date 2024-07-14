@@ -155,11 +155,6 @@ const DashboardLayout = () => {
                 </Link>
               </li>
             </ul>
-            {/* <div className="absolute -bottom-12 text-center w-full">
-              <span className="text-xs">
-                &copy;2024 Created by Ant UED Nursery
-              </span>
-            </div> */}
           </div>
         </div>
       </div>

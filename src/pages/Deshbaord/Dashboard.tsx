@@ -19,7 +19,7 @@ const Dashboard = () => {
             </svg>
           </div>
           <div className="stat-title">Total Products</div>
-          <div className="stat-value text-primary">25.6K</div>
+          <div className="stat-value text-purple-700">25.6K</div>
           <div className="stat-desc">Update to every single day</div>
         </div>
 
@@ -61,7 +61,7 @@ const Dashboard = () => {
             </svg>
           </div>
           <div className="stat-title">Total Orders</div>
-          <div className="stat-value text-secondary">2.6M</div>
+          <div className="stat-value text-primary">2.6M</div>
           {/* <div className="stat-desc">21% more than last month</div> */}
         </div>
       </div>
@@ -86,9 +86,9 @@ const Dashboard = () => {
                 <tr>
                   <th>1</th>
                   <td>Cy Ganderton</td>
-                  <td>01784099162</td>
-                  <td>Thakurgaon</td>
-                  <td>Tree Plants</td>
+                  <td>01884743092</td>
+                  <td>Rungpur</td>
+                  <td>tree plants</td>
                   <td>
                     <span>200 </span>$
                   </td>
@@ -96,9 +96,9 @@ const Dashboard = () => {
                 <tr>
                   <th>1</th>
                   <td>Cy Ganderton</td>
-                  <td>01784099162</td>
-                  <td>Thakurgaon</td>
-                  <td>Tree Plants</td>
+                  <td>01884743092</td>
+                  <td>Rungpur</td>
+                  <td>tree plants</td>
                   <td>
                     <span>200 </span>$
                   </td>
@@ -106,9 +106,9 @@ const Dashboard = () => {
                 <tr>
                   <th>1</th>
                   <td>Cy Ganderton</td>
-                  <td>01784099162</td>
-                  <td>Thakurgaon</td>
-                  <td>Tree Plants</td>
+                  <td>01884743092</td>
+                  <td>Rungpur</td>
+                  <td>tree plants</td>
                   <td>
                     <span>200 </span>$
                   </td>
@@ -116,9 +116,9 @@ const Dashboard = () => {
                 <tr>
                   <th>1</th>
                   <td>Cy Ganderton</td>
-                  <td>01784099162</td>
-                  <td>Thakurgaon</td>
-                  <td>Tree Plants</td>
+                  <td>01884743092</td>
+                  <td>Rungpur</td>
+                  <td>tree plants</td>
                   <td>
                     <span>200 </span>$
                   </td>
@@ -149,9 +149,9 @@ const Dashboard = () => {
                 <tr>
                   <th>1</th>
                   <td>Cy Ganderton</td>
-                  <td>01784099162</td>
-                  <td>Thakurgaon</td>
-                  <td>Tree Plants</td>
+                  <td>01884743092</td>
+                  <td>Rungpur</td>
+                  <td>tree plants</td>
                   <td>
                     <span>200 </span>$
                   </td>
@@ -159,9 +159,9 @@ const Dashboard = () => {
                 <tr>
                   <th>1</th>
                   <td>Cy Ganderton</td>
-                  <td>01784099162</td>
-                  <td>Thakurgaon</td>
-                  <td>Tree Plants</td>
+                  <td>01884743092</td>
+                  <td>Rungpur</td>
+                  <td>tree plants</td>
                   <td>
                     <span>200 </span>$
                   </td>
@@ -169,9 +169,9 @@ const Dashboard = () => {
                 <tr>
                   <th>1</th>
                   <td>Cy Ganderton</td>
-                  <td>01784099162</td>
-                  <td>Thakurgaon</td>
-                  <td>Tree Plants</td>
+                  <td>01884743092</td>
+                  <td>Rungpur</td>
+                  <td>tree plants</td>
                   <td>
                     <span>200 </span>$
                   </td>
@@ -179,9 +179,9 @@ const Dashboard = () => {
                 <tr>
                   <th>1</th>
                   <td>Cy Ganderton</td>
-                  <td>01784099162</td>
-                  <td>Thakurgaon</td>
-                  <td>Tree Plants</td>
+                  <td>01884743092</td>
+                  <td>Rungpur</td>
+                  <td>tree plants</td>
                   <td>
                     <span>200 </span>$
                   </td>

@@ -5,7 +5,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const baseApi = createApi({
   reducerPath: "baseApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://nursery-backend-mu.vercel.app/api",
+    baseUrl: "https://online-nursery-website-server-xi.vercel.app/api",
   }),
   tagTypes: ["product,categories", "order"],
   endpoints: () => ({}),
